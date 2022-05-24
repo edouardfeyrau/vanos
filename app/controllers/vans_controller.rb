@@ -1,25 +1,33 @@
 class VansController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_van, only: %i[show edit update]
+
   def index
     @vans = Van.all
+    authorize @vans
   end
 
   def show
-    @van = Van.find(params[:id])
+    authorize @van
   end
 
   def edit
-    @van = Van.find(params[:id])
+    authorize @van
   end
 
   def update
-    @van = Van.find(params[:id])
     @van.update(van_params)
+    authorize @van
     redirect_to van_path(@van)
   end
 
   private
 
   def van_params
-    params.require(:van).permit(:title, :description, :seats, :location, :price_per_day)
+    params.require(:van).permit(:title, :description, :seats, :location, :price_per_day, :photo)
+  end
+
+  def set_van
+    @van = Van.find(params[:id])
   end
 end
