@@ -1,0 +1,7 @@
+<h1>Create your booking</h1>
+
+<%= simple_form_for [@van, @booking] do |b|%>
+<%= b.input :start_date %>
+<%= b.input :end_date %>
+<%= b.submit %>
+<% end %>
