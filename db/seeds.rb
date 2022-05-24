@@ -6,6 +6,128 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 Van.destroy_all
+User.destroy_all
+puts "start seed"
+
+User.create!(
+  first_name: "Enzo",
+  last_name: "Declercq",
+  email: "enzo.declercq@gmail.com"
+)
+
+User.create!(
+  first_name: "Lena",
+  last_name: "Claeys",
+  email: "Lena.Claeys@gmail.com"
+)
+
+User.create!(
+  first_name: "Linde",
+  last_name: "Bogaerts",
+  email: "Linde.Bogaerts@gmail.com"
+)
+
+User.create!(
+  first_name: "Finn",
+  last_name: "Borremans",
+  email: "Finn.Borremans@gmail.com"
+)
+
+User.create!(
+  first_name: "Tristan",
+  last_name: "Goethals",
+  email: "Tristan.Goethals@gmail.com"
+)
+
+User.create!(
+  first_name: "Yanis",
+  last_name: "Leroy",
+  email: "Yanis.Leroy@gmail.com"
+)
+
+User.create!(
+  first_name: "Arne",
+  last_name: "Coppens",
+  email: "Arne.Coppens@gmail.com"
+)
+
+User.create!(
+  first_name: "Axelle",
+  last_name: "Moreau",
+  email: "Axelle.Moreau@gmail.com"
+)
+
+User.create!(
+  first_name: "Sara",
+  last_name: "Simons",
+  email: "Sara.Simons@gmail.com"
+)
+
+User.create!(
+  first_name: "Antoine",
+  last_name: "Verstraeten",
+  email: "Antoine.Verstraeten@gmail.com"
+)
+
+User.create!(
+  first_name: "Anna",
+  last_name: "Renard",
+  email: "Anna.Renard@gmail.com"
+)
+
+User.create!(
+  first_name: "Hajar",
+  last_name: "Descamps",
+  email: "Hajar.Descamps@gmail.com"
+)
+
+User.create!(
+  first_name: "Célia",
+  last_name: "Poncelet",
+  email: "Célia.Poncelet@gmail.com"
+)
+
+User.create!(
+  first_name: "Vince",
+  last_name: "Verheyen",
+  email: "Vince.Verheyen@gmail.com"
+)
+
+User.create!(
+  first_name: "Martin",
+  last_name: "Goffin",
+  email: "Martin.Goffin@gmail.com"
+)
+
+User.create!(
+  first_name: "Elise",
+  last_name: "Borremans",
+  email: "Elise.Borremans@gmail.com"
+)
+
+User.create!(
+  first_name: "Tibo",
+  last_name: "Verhaegen",
+  email: "Tibo.Verhaegen@gmail.com"
+)
+
+User.create!(
+  first_name: "Daan",
+  last_name: "Vermeersch",
+  email: "Daan.Vermeersch@gmail.com"
+)
+
+User.create!(
+  first_name: "Maya",
+  last_name: "Collignon",
+  email: "Maya.Collignon@gmail.com"
+)
+
+User.create!(
+  first_name: "Nolan",
+  last_name: "Vandamme",
+  email: "Nolan.Vandamme@gmail.com"
+)
 
 Van.create!(
   title: "Marco Polo",
@@ -14,7 +136,7 @@ Van.create!(
   location: "Paris",
   price_per_day: 68,
   user_id: 1,
-  photo: open("https://res.cloudinary.com/dvft1rloz/image/upload/v1653388403/zeaytbwz76ptklweiiar.avif")
+  photo: "app/assets/images/Marco_Polo.avif"
 )
 
 Van.create!(
@@ -23,7 +145,8 @@ Van.create!(
   seats: 6,
   location: "Grenoble",
   price_per_day: 185,
-  user_id: 2
+  user_id: 2,
+  photo: "app/assets/images/VW_COMBI_VINTAGE_T2_MOJITO.jpg"
 )
 
 Van.create!(
@@ -33,7 +156,7 @@ Van.create!(
   location: "Bordeaux",
   price_per_day: 130,
   user_id: 3,
-  photo: open("https://res.cloudinary.com/dvft1rloz/image/upload/v1653388403/zeaytbwz76ptklweiiar.avif")
+  photo: "app/assets/images/Wrangler.avif"
 )
 
 Van.create!(
@@ -42,7 +165,8 @@ Van.create!(
   seats: 6,
   location: "Lille",
   price_per_day: 140,
-  user_id: 4
+  user_id: 4,
+  photo: "app/assets/images/Fiat_Seal_Rimor_5.jpg"
 )
 
 Van.create!(
@@ -51,7 +175,8 @@ Van.create!(
   seats: 4,
   location: "Paris",
   price_per_day: 138,
-  user_id: 5
+  user_id: 5,
+  photo: "app/assets/images/VW_T6_California_Ocean.jpg"
 )
 
 Van.create!(
@@ -60,7 +185,8 @@ Van.create!(
   seats: 2,
   location: "Paris",
   price_per_day: 138,
-  user_id: 6
+  user_id: 6,
+  photo: "app/assets/images/Wide_Path_Camper.jpg"
 )
 
 Van.create!(
@@ -69,7 +195,8 @@ Van.create!(
   seats: 3,
   location: "Nantes",
   price_per_day: 160,
-  user_id: 7
+  user_id: 7,
+  photo: "app/assets/images/Ford_Transit_2018.jpg"
 )
 
 Van.create!(
@@ -78,7 +205,8 @@ Van.create!(
   seats: 5,
   location: "Marseille",
   price_per_day: 139,
-  user_id: 8
+  user_id: 8,
+  photo: "app/assets/images/Ahorn_Camp_660.jpg"
 )
 
 Van.create!(
@@ -87,7 +215,8 @@ Van.create!(
   seats: 3,
   location: "Lyon",
   price_per_day: 134.5,
-  user_id: 9
+  user_id: 9,
+  photo: "app/assets/images/Vito_spacieux.jpeg"
 )
 
 Van.create!(
@@ -96,7 +225,8 @@ Van.create!(
   seats: 3,
   location: "Nice",
   price_per_day: 221,
-  user_id: 10
+  user_id: 10,
+  photo: "app/assets/images/chalet_sur_roues.jpg"
 )
 
 Van.create!(
@@ -105,7 +235,8 @@ Van.create!(
   seats: 5,
   location: "Bougival",
   price_per_day: 140,
-  user_id: 11
+  user_id: 11,
+  photo: "app/assets/images/Volkswagen_California.jpg"
 )
 
 Van.create!(
@@ -114,7 +245,8 @@ Van.create!(
   seats: 4,
   location: "Brest",
   price_per_day: 64,
-  user_id: 12
+  user_id: 12,
+  photo: "app/assets/images/Rebel.avif"
 )
 
 Van.create!(
@@ -123,7 +255,8 @@ Van.create!(
   seats: 5,
   location: "Orléans",
   price_per_day: 206,
-  user_id: 13
+  user_id: 13,
+  photo: "app/assets/images/Atlas5.avif"
 )
 
 Van.create!(
@@ -132,7 +265,8 @@ Van.create!(
   seats: 4,
   location: "Dunkerque",
   price_per_day: 197,
-  user_id: 14
+  user_id: 14,
+  photo: "app/assets/images/Nomad.avif"
 )
 
 Van.create!(
@@ -141,7 +275,8 @@ Van.create!(
   seats: 2,
   location: "Paris",
   price_per_day: 105,
-  user_id: 15
+  user_id: 15,
+  photo: "app/assets/images/Ford_Transit.jpg"
 )
 
 Van.create!(
@@ -150,7 +285,8 @@ Van.create!(
   seats: 4,
   location: "Lyon",
   price_per_day: 221,
-  user_id: 16
+  user_id: 16,
+  photo: "app/assets/images/RV65.jpg"
 )
 
 Van.create!(
@@ -159,7 +295,8 @@ Van.create!(
   seats: 2,
   location: "Limoges",
   price_per_day: 102,
-  user_id: 17
+  user_id: 17,
+  photo: "app/assets/images/Comfort_in_the_Wild.jpg"
 )
 
 Van.create!(
@@ -168,7 +305,8 @@ Van.create!(
   seats: 3,
   location: "Grenoble",
   price_per_day: 105,
-  user_id: 18
+  user_id: 18,
+  photo: "app/assets/images/Titan_the_cosy_camper.jpg"
 )
 
 Van.create!(
@@ -177,7 +315,8 @@ Van.create!(
   seats: 4,
   location: "Paris",
   price_per_day: 406,
-  user_id: 19
+  user_id: 19,
+  photo: "app/assets/images/Luxury_Glamper_Van.jpg"
 )
 
 Van.create!(
@@ -186,5 +325,8 @@ Van.create!(
   seats: 4,
   location: "Lyon",
   price_per_day: 153,
-  user_id: 20
+  user_id: 20,
+  photo: "app/assets/images/Clockwork_Orange.png"
 )
+
+puts "finished"
