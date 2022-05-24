@@ -1,0 +1,35 @@
+
+.searchbar {
+  width: 35vw;
+  height: 40px;
+  background-color: $light-gray;
+  border-radius: 25px;
+  &-input {
+    width: 100%;
+    margin-left: 25px;
+    border: 0;
+    background-color: $light-gray;
+    &:focus {
+      outline: none;
+    }
+  }
+  &-button {
+    width: 35px;
+    height: 30px;
+    margin: 5px;
+    border: none;
+    color: $light-gray;
+    background-color: $primary;
+  }
+}
+
+::placeholder {
+  font-family: $headers-font;
+  color: rgba($gray, 0.15);
+}
+
+@media screen and (max-width: 576px) {
+  .searchbar {
+    width: 50vw;
+  }
+}

@@ -1,0 +1,10 @@
+.btn-secondary {
+  background-color: rgba($orange, 0.15);
+  color: $primary;
+  border-color: $primary;
+  &:hover {
+    color: $light-gray;
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
