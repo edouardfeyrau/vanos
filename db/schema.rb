@@ -62,6 +62,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_112238) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -71,10 +73,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_112238) do
     t.text "description"
     t.integer "seats"
     t.string "location"
-    t.integer "price_par_day"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "price_per_day"
     t.index ["user_id"], name: "index_vans_on_user_id"
   end
 
