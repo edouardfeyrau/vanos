@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.van = @van
     @booking.user = current_user
-    @booking.transaction_amount = (@booking.end_date - @booking.start_date).to_i / 3600 / 24 * @van.price_per_day
+    @booking.transaction_amount = ((@booking.end_date - @booking.start_date).to_i / 3600 / 24).ceil * @van.price_per_day
     if @booking.save
       redirect_to van_path(@van)
     else
