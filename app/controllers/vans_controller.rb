@@ -1,18 +1,17 @@
 class VansController < ApplicationController
+  before_action :set_van, only: %i[show edit update]
+
   def index
     @vans = Van.all
   end
 
   def show
-    @van = Van.find(params[:id])
   end
 
   def edit
-    @van = Van.find(params[:id])
   end
 
   def update
-    @van = Van.find(params[:id])
     @van.update(van_params)
     redirect_to van_path(@van)
   end
@@ -21,5 +20,9 @@ class VansController < ApplicationController
 
   def van_params
     params.require(:van).permit(:title, :description, :seats, :location, :price_per_day)
+  end
+
+  def set_van
+    @van = Van.find(params[:id])
   end
 end

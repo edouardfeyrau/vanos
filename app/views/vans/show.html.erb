@@ -5,4 +5,17 @@
 <p>User id: <%= @van.user_id %></p>
 <p>Price per day: <%= @van.price_per_day %></p>
 
+
+<ul class="list-group">
+  <% @van.bookings.each do |booking| %>
+    <li class="list-group-item">Locataire: <%= booking.user.first_name %> <%= booking.user.last_name %></li>
+    <li class="list-group-item">Date de début: <%= booking.start_date %></li>
+    <li class="list-group-item">Date de fin: <%= booking.end_date %></li>
+    <li class="list-group-item">Valeur de la location: <%= booking.transaction_amount %></li>
+  <% end %>
+</ul>
+
+
 <%= link_to "Edit van", edit_van_path %>
+<%= link_to "Create your booking", new_van_booking_path(@van) %>
+<%= link_to "Back to all vans", vans_path %>
