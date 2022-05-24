@@ -13,140 +13,140 @@ User.create!(
   first_name: "Enzo",
   last_name: "Declercq",
   email: "enzo.declercq@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Lena",
   last_name: "Claeys",
   email: "Lena.Claeys@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Linde",
   last_name: "Bogaerts",
   email: "Linde.Bogaerts@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Finn",
   last_name: "Borremans",
   email: "Finn.Borremans@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Tristan",
   last_name: "Goethals",
   email: "Tristan.Goethals@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Yanis",
   last_name: "Leroy",
   email: "Yanis.Leroy@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Arne",
   last_name: "Coppens",
   email: "Arne.Coppens@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Axelle",
   last_name: "Moreau",
   email: "Axelle.Moreau@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Sara",
   last_name: "Simons",
   email: "Sara.Simons@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Antoine",
   last_name: "Verstraeten",
   email: "Antoine.Verstraeten@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Anna",
   last_name: "Renard",
   email: "Anna.Renard@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Hajar",
   last_name: "Descamps",
   email: "Hajar.Descamps@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Célia",
   last_name: "Poncelet",
   email: "Célia.Poncelet@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Vince",
   last_name: "Verheyen",
   email: "Vince.Verheyen@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Martin",
   last_name: "Goffin",
   email: "Martin.Goffin@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Elise",
   last_name: "Borremans",
   email: "Elise.Borremans@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Tibo",
   last_name: "Verhaegen",
   email: "Tibo.Verhaegen@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Daan",
   last_name: "Vermeersch",
   email: "Daan.Vermeersch@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Maya",
   last_name: "Collignon",
   email: "Maya.Collignon@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 User.create!(
   first_name: "Nolan",
   last_name: "Vandamme",
   email: "Nolan.Vandamme@gmail.com",
-  password: "1234"
+  encrypted_password: "1234"
 )
 
 Van.create!(
