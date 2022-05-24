@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Title: <%= @van.title %></h1>
 <h2>Description: <%= @van.description %></h2>
 <p># of seats: <%= @van.seats %></p>
@@ -15,7 +16,10 @@
   <% end %>
 </ul>
 
-
-<%= link_to "Edit van", edit_van_path %>
+<% if policy(@van).edit? %>
+  <%= link_to "Edit van", edit_van_path(@van) %>
+<% end %>
 <%= link_to "Create your booking", new_van_booking_path(@van) %>
 <%= link_to "Back to all vans", vans_path %>
+
+</div>
