@@ -1,0 +1,11 @@
+.main-card {
+  border-radius: 5px;
+  &-photo {
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+  }
+  &-detail {
+    font-weight: 600;
+  }
+}
