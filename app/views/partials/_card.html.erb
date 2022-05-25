@@ -1,0 +1,20 @@
+<div class="main-card border shadow-sm">
+  <div class="main-card-photo" style="background-image: url(<%= cl_image_path(van.photo.key) %>)"></div>
+  <div class="main-card-info d-flex justify-content-between p-3">
+    <div>
+      <h3 class="main-card-title"><%= van.title %></h3>
+      <p class="main-card-description"><%= van.description %></p>
+      <div class="d-flex">
+        <h4 class="main-card-detail"><%= van.price_per_day %></h4>
+        <div class="align-self-center">
+          <i class="fa-solid fa-euro-sign align-self-center fa-lg"></i>
+          <small class="align-self-center opacity-50">/night</small>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex align-self-center">
+      <h4 class="main-card-detail my-0 me-2"><%= van.seats %></h4>
+      <i class="fa-solid fa-user align-self-center opacity-50"></i>
+    </div>
+  </div>
+</div>
