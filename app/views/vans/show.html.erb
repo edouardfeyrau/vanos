@@ -3,7 +3,7 @@
 <h2>Description: <%= @van.description %></h2>
 <p># of seats: <%= @van.seats %></p>
 <p>Location : <%= @van.location %></p>
-<p>User id: <%= @van.user_id %></p>
+<p>User: <%= @van.user.first_name %> <%= @van.user.last_name %></p>
 <p>Price per day: <%= @van.price_per_day %></p>
 <p><%= cl_image_tag @van.photo.key, height: 300, width: 400, crop: :fill %></p>
 
