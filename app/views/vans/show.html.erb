@@ -29,12 +29,4 @@
     <h4 class="van-highlight">A word from the owner</h4>
     <p class="van-description">"<%= @van.description %>"</p>
   </div>
-  <ul class="list-group">
-    <% @van.bookings.each do |booking| %>
-      <li class="list-group-item">Locataire: <%= booking.user.first_name %> <%= booking.user.last_name %></li>
-      <li class="list-group-item">Date de début: <%= booking.start_date %></li>
-      <li class="list-group-item">Date de fin: <%= booking.end_date %></li>
-      <li class="list-group-item">Valeur de la location: <%= booking.transaction_amount %></li>
-    <% end %>
-  </ul>
 </div>
