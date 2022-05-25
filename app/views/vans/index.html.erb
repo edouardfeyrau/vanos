@@ -1,5 +1,7 @@
+<h1>This is the index page</h1>
 <ul>
   <% @vans.each do |van| %>
   <li><%= link_to van.title, van_path(van) %></li>
+  <li><%= cl_image_tag van.photo.key, height: 300, width: 400, crop: :fill %></li>
   <% end %>
 </ul>
