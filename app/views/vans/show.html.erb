@@ -5,6 +5,7 @@
 <p>Location : <%= @van.location %></p>
 <p>User id: <%= @van.user_id %></p>
 <p>Price per day: <%= @van.price_per_day %></p>
+<p><%= cl_image_tag @van.photo.key, height: 300, width: 400, crop: :fill %></p>
 
 
 <ul class="list-group">
@@ -21,5 +22,4 @@
 <% end %>
 <%= link_to "Create your booking", new_van_booking_path(@van) %>
 <%= link_to "Back to all vans", vans_path %>
-
 </div>
