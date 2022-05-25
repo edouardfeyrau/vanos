@@ -1,1 +1,9 @@
-<h1>Showing off our booking</h1>
+<h1 class="text-center">Your booking details</h1>
+<br>
+<br>
+<ul class="list-group">
+      <li class="list-group-item">Locataire: <%= @booking.user.first_name %> <%= @booking.user.last_name %></li>
+      <li class="list-group-item">Date de début: <%= @booking.start_date %></li>
+      <li class="list-group-item">Date de fin: <%= @booking.end_date %></li>
+      <li class="list-group-item">Valeur de la location: <%= @booking.transaction_amount %></li>
+  </ul>
