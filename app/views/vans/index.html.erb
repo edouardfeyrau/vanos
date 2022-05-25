@@ -2,6 +2,8 @@
 
 <div class="grid">
   <% @vans.each do |van| %>
-    <%= render 'partials/card', van: van %>
+    <%= link_to van_path(van), class: 'text-decoration-none' do %>
+      <%= render 'partials/card', van: van %>
+    <% end %>
   <% end %>
 </div>
