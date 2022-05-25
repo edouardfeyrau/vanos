@@ -1,0 +1,13 @@
+<%= simple_form_for(van) do |v| %>
+  <%= v.input :title %>
+  <%= v.input :description %>
+  <%= v.input :seats %>
+  <%= v.input :location %>
+  <%= v.input :price_per_day %>
+  <%= v.input :photo, as: :file %>
+  <% if van.persisted? %>
+    <%= v.submit "Update van"%>
+  <% else %>
+    <%= v.submit "Create a new van"%>
+  <% end %>
+<% end %>
