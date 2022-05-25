@@ -1,5 +1,6 @@
-<h1>This is the index page</h1>
-
+<div>
+  <h1 class="mb-3"><%= @vans.length %> vans</h1>
+</div>
 <div class="grid">
   <% @vans.each do |van| %>
     <%= link_to van_path(van), class: 'text-decoration-none' do %>
