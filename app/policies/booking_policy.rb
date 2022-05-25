@@ -1,4 +1,13 @@
-class VanPolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
+
+  def new?
+    create?
+  end
+
+  def create?
+    true
+  end
+
   def index?
     true
   end
@@ -7,15 +16,7 @@ class VanPolicy < ApplicationPolicy
     true
   end
 
-  def create?
-    true
-  end
-
   def update?
-    record.user == user
-  end
-
-  def destroy?
     record.user == user
   end
 

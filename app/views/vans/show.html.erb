@@ -21,5 +21,6 @@
   <%= link_to "Edit van", edit_van_path(@van) %>
 <% end %>
 <%= link_to "Create your booking", new_van_booking_path(@van) %>
+<%= link_to "Delete this van", van_path(@van), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@van).destroy?%>
 <%= link_to "Back to all vans", vans_path %>
 </div>

@@ -1,4 +1,8 @@
 <h1>This is the index page</h1>
+
+<%# <% if policy(@van).new? %>
+<%= link_to "add a new van as owner", new_van_path if policy(Van).new?%>
+<%# <% end %>
 <ul>
   <% @vans.each do |van| %>
   <li><%= link_to van.title, van_path(van) %></li>
