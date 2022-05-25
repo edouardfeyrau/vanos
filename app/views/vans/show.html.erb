@@ -1,28 +1,40 @@
 <div class="van-image mb-5 shadow-sm" style="background-image: url(<%= cl_image_path(@van.photo.key) %>)"></div>
+<div class="row">
   <div class="col-12 col-md-6">
-  <div>
-    <h1 class="van-title"><%= @van.title %></h1>
+    <div>
+      <h1 class="van-highlight mb-3"><%= @van.title %></h1>
+    </div>
+    <div class="van-info my-3 d-flex justify-content-between">
+      <div class="d-flex flex-column align-items-center">
+        <h4 class="mb-2"><%= @van.seats %></h4>
+        <i class="fa-solid fa-user"></i>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <h4 class="mb-2"><%= @van.location %></h4>
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <h4 class="mb-2"><%= @van.price_per_day.round %>€</h4>
+        <p>per night</p>
+      </div>
+    </div>
+  <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+    <% if policy(@van).edit? %>
+      <%= link_to "Edit van", edit_van_path(@van) %>
+    <% end %>
+    <%= link_to "Book #{@van.title}", new_van_booking_path(@van), class: "m-2 btn btn-primary text-light"%>
+    <%= link_to "Back to all vans", vans_path, class: "m-2 btn btn-secondary"%>
   </div>
-  <div>
-    <p><%= @van.seats %></p>
-    <p><%= @van.location %></p>
-    <p><%= @van.price_per_day %></p>
+  <div class="my-5">
+    <h4 class="van-highlight">A word from the owner</h4>
+    <p class="van-description">"<%= @van.description %>"</p>
   </div>
+  <ul class="list-group">
+    <% @van.bookings.each do |booking| %>
+      <li class="list-group-item">Locataire: <%= booking.user.first_name %> <%= booking.user.last_name %></li>
+      <li class="list-group-item">Date de début: <%= booking.start_date %></li>
+      <li class="list-group-item">Date de fin: <%= booking.end_date %></li>
+      <li class="list-group-item">Valeur de la location: <%= booking.transaction_amount %></li>
+    <% end %>
+  </ul>
 </div>
-<div class="col-12 col-md-6">
-</div>
-  <h4 class="van-description"><%= @van.description %></h4>
-<ul class="list-group">
-<%# <% @van.bookings.each do |booking| %>
-  <%# <li class="list-group-item">Locataire: <%= booking.user.first_name %> <%# booking.user.last_name</li> %>
-  <%# <li class="list-group-item">Date de début: <%= booking.start_date </li> %>
-  <%# <li class="list-group-item">Date de fin: <%= booking.end_date </li> %>
-  <%# <li class="list-group-item">Valeur de la location: <%= booking.transaction_amount </li> %>
-<%# <% end %>
-</ul>
-<% if policy(@van).edit? %>
-<%= link_to "Edit van", edit_van_path(@van) %>
-<% end %>
-<%= link_to "Create your booking", new_van_booking_path(@van) %>
-<%= link_to "Delete this van", van_path(@van), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@van).destroy?%>
-<%= link_to "Back to all vans", vans_path %>
