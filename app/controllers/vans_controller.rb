@@ -1,6 +1,6 @@
 class VansController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_van, only: %i[show edit update]
+  before_action :set_van, only: %i[show edit update destroy]
 
   def index
     @vans = Van.all
@@ -11,6 +11,19 @@ class VansController < ApplicationController
     authorize @van
   end
 
+  def new
+    @van = Van.new
+    authorize @van
+  end
+
+  def create
+    @van = Van.new(van_params)
+    @van.user = current_user
+    authorize @van
+    @van.save
+    redirect_to van_path(@van)
+  end
+
   def edit
     authorize @van
   end
@@ -19,6 +32,12 @@ class VansController < ApplicationController
     @van.update(van_params)
     authorize @van
     redirect_to van_path(@van)
+  end
+
+  def destroy
+    authorize @van
+    @van.destroy
+    redirect_to vans_path
   end
 
   private

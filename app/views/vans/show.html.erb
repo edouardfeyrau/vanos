@@ -1,5 +1,5 @@
 <div class="van-image mb-5 shadow-sm" style="background-image: url(<%= cl_image_path(@van.photo.key) %>)"></div>
-<div class="col-12 col-md-6">
+  <div class="col-12 col-md-6">
   <div>
     <h1 class="van-title"><%= @van.title %></h1>
   </div>
@@ -11,17 +11,18 @@
 </div>
 <div class="col-12 col-md-6">
 </div>
-    <h4 class="van-description"><%= @van.description %></h4>
+  <h4 class="van-description"><%= @van.description %></h4>
 <ul class="list-group">
-  <% @van.bookings.each do |booking| %>
-    <li class="list-group-item">Locataire: <%= booking.user.first_name %> <%= booking.user.last_name %></li>
-    <li class="list-group-item">Date de début: <%= booking.start_date %></li>
-    <li class="list-group-item">Date de fin: <%= booking.end_date %></li>
-    <li class="list-group-item">Valeur de la location: <%= booking.transaction_amount %></li>
-  <% end %>
+<% @van.bookings.each do |booking| %>
+  <li class="list-group-item">Locataire: <%= booking.user.first_name %> <%= booking.user.last_name %></li>
+  <li class="list-group-item">Date de début: <%= booking.start_date %></li>
+  <li class="list-group-item">Date de fin: <%= booking.end_date %></li>
+  <li class="list-group-item">Valeur de la location: <%= booking.transaction_amount %></li>
+<% end %>
 </ul>
 <% if policy(@van).edit? %>
-  <%= link_to "Edit van", edit_van_path(@van) %>
+<%= link_to "Edit van", edit_van_path(@van) %>
 <% end %>
 <%= link_to "Create your booking", new_van_booking_path(@van) %>
+<%= link_to "Delete this van", van_path(@van), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@van).destroy?%>
 <%= link_to "Back to all vans", vans_path %>
