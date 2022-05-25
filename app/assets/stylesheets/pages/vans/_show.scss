@@ -5,10 +5,12 @@
   background-position: center;
 }
 
-.van-title {
-  font-weight: 800;
+.van-info {
+  padding: 25px 0;
+  border-top: 1px solid $orange;
+  border-bottom: 1px solid $orange;
 }
 
-.van-description {
-  font-weight: 600;
+.van-highlight {
+  font-weight: 800;
 }
