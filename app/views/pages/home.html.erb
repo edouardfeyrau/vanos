@@ -1,38 +1,35 @@
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1594495894542-a46cc73e081a?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dmFufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800');">
+<div class="image home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1594495894542-a46cc73e081a');">
   <div class="container text-light">
   <h1 class="mt-3 fs-1"> <strong>Let's ride!</strong> </h1>
   <p class="mt-3 fs-3">Vans for all your needs</p>
   <%= link_to "Find my van", vans_path, class: "btn btn-primary btn-lg text-light mt-3" %>
   </div>
 </div>
-<div class="container my-2 ">
-  <div class="row">
-    <div class="col-12 my-4">
-      <h1 class="text-primary fs-1 fw-bold text-center mt-3">We rent vans</h1>
-      <p class="fs-4 text-center mt-3"><strong>Vanos</strong> gives you access to vans all around the world</p>
-    </div>
-    <div class="grid mt-3">
-      <% @vans.each do |van| %>
-        <%= link_to van_path(van), class: 'text-decoration-none' do %>
-          <%= render 'partials/card', van: van %>
+<div class="container my-5 p-4">
+  <div class="row justify-content-center mb-5">
+    <div class="col-12 p-0">
+      <div class="mb-5">
+        <h1 class="text-primary fs-1 fw-bold text-center">We rent vans</h1>
+        <p class="fs-4 text-center"><strong>Vanos</strong> gives you access to vans all around the world</p>
+      </div>
+      <div class="grid">
+        <% @vans.each do |van| %>
+          <%= link_to van_path(van), class: 'text-decoration-none' do %>
+            <%= render 'partials/card', van: van %>
+          <% end %>
         <% end %>
-      <% end %>
-      </div>
-  </div>
-  <div class="home-card shadow-sm row d-flex justify-content-evenly my-3 p-5">
-    <div class="col-12 col-md-6">
-      <div class="d-flex align-items-center">
-        <div class="footer-copyright d-flex flex-column justify-content-evenly text-center">
-          <p class=" fs-4 align-self-center"><strong>Find</strong> the van that fits your needs</p>
-          <p class=" fs-4 fw-normal "><strong>Book</strong> it</p>
-          <p class=" fs-4 fw-normal "><strong>Ride</strong> it</p>
-          <%= link_to "Discover our vans", vans_path, class: "btn btn-primary btn-lg text-light mt-3" %>
         </div>
-      </div>
     </div>
-    <div class="col-12 col-md-6">
-      <img src="https://images.unsplash.com/photo-1425342605259-25d80e320565?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmlkZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800" alt="ride" class="rounded-5 w-50">
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-12 image home-illustration rounded" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1425342605259-25d80e320565')">
+      <div class="h-100 text-light d-flex flex-column align-items-center justify-content-center">
+        <div class="mb-2">
+          <p class="fs-4 text-center"><strong>Find</strong> the van that fits your needs</p>
+          <p class="fs-4 text-center"><strong>Book</strong> it, <strong>ride</strong> it!</p>
+        </div>
+        <%= link_to "Discover our vans", vans_path, class: "w-25 btn btn-primary btn-lg text-light mb-3" %>
+      </div>
     </div>
   </div>
 </div>
