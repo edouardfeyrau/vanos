@@ -1,7 +1,31 @@
 <div>
   <h1 class="mb-3"><%= @vans.length %> vans</h1>
-  <%= link_to "add a new van as owner", new_van_path %>
 </div>
+
+<%= form_tag vans_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :new_location,
+    params[:new_location],
+    class: "form-control",
+    placeholder: "Find a location to start from"
+  %>
+  <%= text_field_tag :new_seats,
+    params[:new_seats],
+    class: "form-control",
+    placeholder: "How many will you be ?"
+  %>
+  <%= date_field_tag :new_start_date,
+    params[:new_start_date],
+    class: "form-control",
+    placeholder: "When do you want to travel ?"
+  %>
+    <%= date_field_tag :new_end_date,
+    params[:new_end_date],
+    class: "form-control",
+    placeholder: "When will you be done ?"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div class="grid">
  <% @vans.each do |van| %>
   <%= link_to van_path(van), class: 'text-decoration-none' do %>
