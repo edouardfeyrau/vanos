@@ -7,18 +7,11 @@
           <p><%= @van.user.first_name %></p>
           <i class="fa-solid fa-user align-self-center ms-2 opacity-50"></i>
         </div>
-        <% if @van.bookings.count.nonzero? %>
-          <div class="d-flex">
-            <% booking = @van.bookings.count == 1 ? 'booking' : 'bookings' %>
-            <p><%= @van.bookings.count %> <%= booking %></p>
-            <i class="fa-solid fa-clock-rotate-left align-self-center ms-2 opacity-50"></i>
-          </div>
-        <% end %>
       </div>
     </div>
     <div class="van-image shadow-sm" style="background-image: url(<%= cl_image_path(@van.photo.key) %>)"></div>
     <div class="col-12">
-      <div class="van-info py-3 mb-3 d-flex justify-content-between">
+      <div class="van-info py-3 mb-3 d-flex justify-content-around">
         <div class="d-flex align-items-center">
           <i class="fa-solid fa-people-group fa-lg me-2 opacity-50"></i>
           <h4><%= @van.seats %></h4>
