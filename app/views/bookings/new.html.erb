@@ -1,7 +1,7 @@
 <h1>Create your booking</h1>
 
-<%= simple_form_for [@van, @booking] do |b|%>
-<%= b.input :start_date %>
-<%= b.input :end_date %>
+<%= simple_form_for [@van, @booking], data: { controller: "flatpickr" } do |b|%>
+<%= b.input :start_date, as: :string, required: false, placeholder: "Enter your departure date", input_html: {class: "datepickr"} %>
+<%= b.input :end_date, as: :string, required: false, placeholder: "Enter your return date",input_html: {class: "datepickr"} %>
 <%= b.submit %>
 <% end %>
