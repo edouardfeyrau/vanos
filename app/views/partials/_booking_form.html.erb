@@ -1,0 +1,12 @@
+<div class="form border shadow-sm">
+  <%= simple_form_for [@van, @booking], data: { controller: "flatpickr" } do |b|%>
+    <p class="fs-4 text-center pb-2 mb-2 opacity-50 border-bottom"><%= "Book #{@van.title}" %></p>
+    <div class="row">
+      <div class="col-12 col-lg-6"><%= b.input :start_date, as: :string, required: false, placeholder: "Choose date", input_html: {class: "datepickr"} %></div>
+      <div class="col-12 col-lg-6"><%= b.input :end_date, as: :string, required: false, placeholder: "Choose date",input_html: {class: "datepickr"} %></div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%= b.submit "Book now!", class:"w-100 btn btn-primary text-light" %>
+    </div>
+  <% end %>
+</div>
