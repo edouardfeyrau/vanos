@@ -1,0 +1,52 @@
+<h1 style="text-align:center"><%= @user.first_name %>'s Dashboard</h1>
+<br>
+<div class="container">
+  <h2>List of your van(s) available for rentals</h2>
+  <br>
+  <% @vans.each do |van| %>
+    <strong><%= van.title %></strong>
+    <br>
+    <br>
+    <img src=<%= cl_image_path(van.photo.key) %> width=300px>
+    <br>
+    <br>
+    <% if Booking.all.where(van: van).length == 0 %>
+      <p>You currently have no booking request yet for this van.</p>
+    <% else %>
+      <% Booking.all.where(van: van).each do |booking| %>
+        <%= booking.user.first_name %> has made a request for the period
+        <%= booking.start_date.strftime('%e %B %Y') %> to
+        <%= booking.end_date.strftime('%e %B %Y') %>
+        <br>
+        Request status is currently <%= booking.status.downcase %>
+        <br>
+        <br>
+        <%= link_to "Accept", accept_path(booking_id: booking.id) %>
+        <%= link_to "Cancel", cancel_path(booking_id: booking.id) %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <br>
+  <br>
+  <br>
+  <h2>List of your bookings</h2>
+  <br>
+  <% if @bookings.length == 0 %>
+  You do not have any booking planned yet
+  <% else %>
+    <% @bookings.each do |booking| %>
+      <strong>Van booked:</strong> <%= booking.van.title %>
+      <br>
+      <strong>Date of location</strong>
+      from <strong><%= booking.start_date.strftime('%e %B %Y at %l:%M %p') %></strong>
+      to <strong><%= booking.end_date.strftime('%e %B %Y at %l:%M %p') %></strong>
+      <br>
+      Status of booking is <%= booking.status.downcase %>.
+      <% if booking.status == "Pending" %>
+        <%= booking.van.user.first_name %> will shortly come back to you
+      <% end %>
+      <br>
+      <br>
+    <% end %>
+  <% end %>
+</div>
