@@ -1,45 +1,47 @@
-<div class="row justify-content-center">
-  <div class="col-12 col-lg-8">
-    <div class="d-flex justify-content-between mb-3">
-      <h1 class="van-highlight me-3"><%= @van.title %></h1>
-      <div class="d-flex flex-column align-self-end">
-        <div class="d-flex align-self-end">
-          <% if policy(@van).edit? %>
-            <%= link_to "Edit my van", edit_van_path(@van), class: "btn btn-secondary" %>
-          <% else %>
-            <p><%= @van.user.first_name %></p>
-            <i class="fa-solid fa-user align-self-center ms-2 opacity-50"></i>
-          <% end %>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+      <div class="d-flex justify-content-between mb-3">
+        <h1 class="van-highlight me-3"><%= @van.title %></h1>
+        <div class="d-flex flex-column align-self-end">
+          <div class="d-flex align-self-end">
+            <% if policy(@van).edit? %>
+              <%= link_to "Edit my van", edit_van_path(@van), class: "btn btn-secondary" %>
+            <% else %>
+              <p><%= @van.user.first_name %></p>
+              <i class="fa-solid fa-user align-self-center ms-2 opacity-50"></i>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="van-image shadow-sm" style="background-image: url(<%= cl_image_path(@van.photo.key) %>)"></div>
-    <div class="col-12">
-      <div class="van-info py-3 mb-3 d-flex justify-content-around">
-        <div class="d-flex align-items-center">
-          <i class="fa-solid fa-people-group fa-lg me-2 opacity-50"></i>
-          <h4><%= @van.seats %></h4>
-        </div>
-        <div class="d-flex align-items-center">
-          <i class="fa-solid fa-location-dot fa-lg me-2 opacity-50"></i>
-          <h4><%= @van.location %></h4>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <h4 class="mb-2"><%= @van.price_per_day.round %>€</h4>
-          <p class="opacity-50">per night</p>
+      <div class="van-image shadow-sm" style="background-image: url(<%= cl_image_path(@van.photo.key) %>)"></div>
+      <div class="col-12">
+        <div class="van-info py-3 mb-3 d-flex justify-content-around">
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-people-group fa-lg me-2 opacity-50"></i>
+            <h4><%= @van.seats %></h4>
+          </div>
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-location-dot fa-lg me-2 opacity-50"></i>
+            <h4><%= @van.location %></h4>
+          </div>
+          <div class="d-flex flex-column align-items-center">
+            <h4 class="mb-2"><%= @van.price_per_day.round %>€</h4>
+            <p class="opacity-50">per night</p>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row mt-5">
-      <div class="d-flex flex-column justify-content-center col-12 col-lg-7 my-5">
-        <h4 class="van-highlight">A word from <%= @van.user.first_name %></h4>
-        <p class="van-description">"<%= @van.description %>"</p>
-      </div>
-      <% unless policy(@van).edit? %>
-        <div class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
-            <%= render 'partials/booking_form' %>
+      <div class="row mt-5">
+        <div class="d-flex flex-column justify-content-center col-12 col-lg-7 my-5">
+          <h4 class="van-highlight">A word from <%= @van.user.first_name %></h4>
+          <p class="van-description">"<%= @van.description %>"</p>
         </div>
-      <% end %>
+        <% unless policy(@van).edit? %>
+          <div class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
+              <%= render 'partials/booking_form' %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
