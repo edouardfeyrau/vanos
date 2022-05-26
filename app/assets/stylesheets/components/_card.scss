@@ -7,16 +7,16 @@
     height: 200px;
   }
   &-detail {
-    font-weight: 600;
+    font-weight: 400;
+    font-size: 20px;
   }
-}
-
-.home-card {
-  border-radius: 15px;
-  max-height: 75vh;
-  img {
-    border-radius: 13px;
-    object-fit: cover;
-    max-width: 40%;
+  &-title {
+    font-weight: 600;
+    font-size: 1.4em;
+    margin-bottom: 5px;
+  }
+  &-price {
+    font-weight: 600;
+    font-size: 1.3em;
   }
 }

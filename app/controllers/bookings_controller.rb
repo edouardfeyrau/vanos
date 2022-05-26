@@ -1,15 +1,11 @@
 class BookingsController < ApplicationController
   before_action :set_van, only: %i[new create]
 
-  def new
-    @booking = Booking.new
-    authorize @booking
-  end
-
   def create
     @booking = Booking.new(booking_params)
     @booking.van = @van
     @booking.user = current_user
+    @booking.status = "Pending"
     authorize @booking
     @booking.transaction_amount = ((@booking.end_date - @booking.start_date).to_i / 3600 / 24).ceil * @van.price_per_day
     if @booking.save
@@ -27,7 +23,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 
   def set_van

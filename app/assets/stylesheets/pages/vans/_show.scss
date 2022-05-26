@@ -1,16 +1,35 @@
+h4 {
+  font-weight: 600;
+}
+
 .van-image {
   border-radius: 5px;
-  height: 75vh;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+}
+
+.van-image-small {
+  border-radius: 5px;
+  height: 250px;
   background-size: cover;
   background-position: center;
 }
 
 .van-info {
-  padding: 25px 0;
-  border-top: 1px solid $orange;
+  padding: 15px 0;
   border-bottom: 1px solid $orange;
 }
 
 .van-highlight {
   font-weight: 800;
+}
+
+@media screen and (max-width: 576px) {
+  .van-image {
+    height: 300px;
+  }
+  .van-image-small {
+    height: 150px;
+  }
 }
