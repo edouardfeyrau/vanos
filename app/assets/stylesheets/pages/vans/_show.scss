@@ -4,7 +4,7 @@ h4 {
 
 .van-image {
   border-radius: 5px;
-  height: 75vh;
+  height: 400px;
   background-size: cover;
   background-position: center;
 }
@@ -16,4 +16,10 @@ h4 {
 
 .van-highlight {
   font-weight: 800;
+}
+
+@media screen and (max-width: 576px) {
+  .van-image {
+    height: 300px;
+  }
 }
