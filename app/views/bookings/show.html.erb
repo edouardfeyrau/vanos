@@ -1,9 +1,16 @@
-<h1 class="text-center">Your booking details</h1>
+<h1 class="text-center">Congratulations !</h1>
 <br>
+<br>
+<h5>Your booking is currently <%= @booking.status.downcase %>.</h5>
+<br>
+<h5><%= @booking.user.first_name %> <%= @booking.user.last_name %> (van's owner) will shortly come back to you  !</h5>
+<br>
+<br>
+<h6><strong>Your booking details</strong></h6>
 <br>
 <ul class="list-group">
-      <li class="list-group-item">Locataire: <%= @booking.user.first_name %> <%= @booking.user.last_name %></li>
-      <li class="list-group-item">Date de début: <%= @booking.start_date %></li>
-      <li class="list-group-item">Date de fin: <%= @booking.end_date %></li>
-      <li class="list-group-item">Valeur de la location: <%= @booking.transaction_amount %></li>
+      <%# <li class="list-group-item">Locataire: <%= @booking.user.first_name <%= @booking.user.last_name</li> %>
+      <li class="list-group-item"><strong>Date de début</strong>: <%= @booking.start_date %></li>
+      <li class="list-group-item"><strong>Date de fin</strong>: <%= @booking.end_date %></li>
+      <li class="list-group-item"><strong>Valeur de la location</strong>: <%= @booking.transaction_amount %> €</li>
   </ul>

@@ -166,7 +166,7 @@ van1.save
 
 file2 = URI.open("https://res.cloudinary.com/dkn6slr3b/image/upload/v1653468582/cgjlfxeqcan5zntnjiqn.jpg")
 van2 = Van.new(
-  title: "VW Combi Vintage Mojito",
+  title: "VW Combi Vintage",
   description: "Entièrement équipée et tout confort, vous n'avez plus qu'à poser vos valises et suivre votre itinéraire.",
   seats: 6,
   location: "Grenoble",
