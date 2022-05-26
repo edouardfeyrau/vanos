@@ -7,7 +7,17 @@
     height: 200px;
   }
   &-detail {
+    font-weight: 400;
+    font-size: 20px;
+  }
+  &-title {
     font-weight: 600;
+    font-size: 1.4em;
+    margin-bottom: 5px;
+  }
+  &-price {
+    font-weight: 600;
+    font-size: 1.3em;
   }
 }
 
