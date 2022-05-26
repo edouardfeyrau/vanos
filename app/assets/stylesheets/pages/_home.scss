@@ -1,6 +1,13 @@
-// Specific CSS for your home-page
-.banner {
+.image {
   background-size: cover;
+}
+
+.home-banner {
+  padding: 20vh 0;
   background-position: bottom;
-  padding: 150px 0;
+}
+
+.home-illustration {
+  height: 300px;
+  background-position: center;
 }
