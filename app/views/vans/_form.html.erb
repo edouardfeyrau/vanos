@@ -1,13 +1,40 @@
-<%= simple_form_for(van) do |v| %>
-  <%= v.input :title %>
-  <%= v.input :description %>
-  <%= v.input :seats %>
-  <%= v.input :location %>
-  <%= v.input :price_per_day %>
-  <%= v.input :photo, as: :file %>
-  <% if van.persisted? %>
-    <%= v.submit "Update van"%>
-  <% else %>
-    <%= v.submit "Create a new van"%>
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-8">
+    <div class="form border shadow-sm px-4">
+      <%= simple_form_for(van) do |v| %>
+        <h1 class="fs-3 text-center pb-2 fw-semibold"><%= "Rent your van" %></h1>
+        <p class="fs-5 text-center pb-2 border-bottom opacity-50 mb-2"><%= "Empower people to search the world" %></p>
+            <%= v.input :title, placeholder: 'Brand and model', as: :string, required: false %>
+            <%= v.input :description, placeholder: 'Tell us about your van', as: :string, required: false %>
+            <div class="row ">
+              <div class="col-12 col-lg-6">
+                <%= v.input :seats, placeholder: 'Number of travelers', as: :string, required: false %>
+              </div>
+              <div class="col-12 col-lg-6">
+                <%= v.input :location, placeholder: 'City of departure', as: :string, required: false %>
+              </div>
+            </div>
+            <%= v.input :price_per_day, placeholder: '100 €', as: :string, required: false %>
+            <%= v.input :photo %>
+            <div class="create d-flex align-itself-end mt-3">
+              <% if van.persisted? %>
+                <%= v.submit "Update van", class:"w-100 btn btn-primary text-light"%>
+              <% else %>
+                <%= v.submit "Create a new van", class:"w-100 btn btn-primary text-light"%>
+              <% end %>
+            </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%# <div class="form border shadow-sm">
+  <%= simple_form_for [@van, @booking], data: { controller: "flatpickr" } do |b|%>
+    <%# <div class="row">
+      <div class="col-12 col-lg-6"><%= b.input :start_date, as: :string, required: false, placeholder: "Choose date", input_html: {class: "datepickr"} %>
+      <%# <div class="col-12 col-lg-6"><%= b.input :end_date, as: :string, required: false, placeholder: "Choose date",input_html: {class: "datepickr"} %>
+    <%# </div>
+    <div class="d-flex justify-content-center">
+      <%= b.submit "Book now!", class:"w-100 btn btn-primary text-light" %>
+    <%# </div>
   <% end %>
-<% end %>
+<%# </div> %>
