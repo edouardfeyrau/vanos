@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
   resources :bookings, only: [:show]
+  get "dashboard", to: "pages#dashboard"
+  get "accept", to: "pages#accept_reservation"
+  get "cancel", to: "pages#cancel_reservation"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
