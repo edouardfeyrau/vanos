@@ -1,3 +1,7 @@
+h4 {
+  font-weight: 600;
+}
+
 .van-image {
   border-radius: 5px;
   height: 75vh;
@@ -6,8 +10,7 @@
 }
 
 .van-info {
-  padding: 25px 0;
-  border-top: 1px solid $orange;
+  padding: 15px 0;
   border-bottom: 1px solid $orange;
 }
 
