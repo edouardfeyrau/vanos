@@ -8,6 +8,8 @@ class VansController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+    authorize @booking
     authorize @van
   end
 

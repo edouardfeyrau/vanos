@@ -4,8 +4,12 @@
       <h1 class="van-highlight me-3"><%= @van.title %></h1>
       <div class="d-flex flex-column align-self-end">
         <div class="d-flex align-self-end">
-          <p><%= @van.user.first_name %></p>
-          <i class="fa-solid fa-user align-self-center ms-2 opacity-50"></i>
+          <% if policy(@van).edit? %>
+            <%= link_to "Edit my van", edit_van_path(@van), class: "btn btn-secondary" %>
+          <% else %>
+            <p><%= @van.user.first_name %></p>
+            <i class="fa-solid fa-user align-self-center ms-2 opacity-50"></i>
+          <% end %>
         </div>
       </div>
     </div>
@@ -27,16 +31,15 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12 col-lg-6 my-5">
+      <div class="d-flex flex-column justify-content-center col-12 col-lg-6 my-5">
         <h4 class="van-highlight">A word from the owner</h4>
         <p class="van-description">"<%= @van.description %>"</p>
       </div>
-      <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
-        <% if policy(@van).edit? %>
-          <%= link_to "Edit my van", edit_van_path(@van), class: "m-2 btn btn-secondary" %>
-        <% end %>
-        <%= link_to "Book #{@van.title}", new_van_booking_path(@van), class: "m-2 btn btn-primary text-light"%>
-      </div>
+      <% unless policy(@van).edit? %>
+        <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+            <%= render 'partials/booking_form' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

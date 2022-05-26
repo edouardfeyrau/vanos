@@ -1,11 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_van, only: %i[new create]
 
-  def new
-    @booking = Booking.new
-    authorize @booking
-  end
-
   def create
     @booking = Booking.new(booking_params)
     @booking.van = @van
