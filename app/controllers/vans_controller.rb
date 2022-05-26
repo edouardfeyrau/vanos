@@ -3,7 +3,32 @@ class VansController < ApplicationController
   before_action :set_van, only: %i[show edit update destroy]
 
   def index
-    @vans = Van.all
+
+    if params[:new_start_date].present? && params[:new_end_date].present?
+      @vans_all = Van.all
+      @bookings_start = Booking.bookings_start_date( params[:new_start_date]).bookings_end_date(params[:new_start_date])
+      @bookings_end = Booking.bookings_start_date(params[:new_end_date]).bookings_end_date(params[:new_end_date])
+      @bookings = @bookings_start.or(@bookings_end)
+      @array = []
+      @bookings.each do |booking|
+        @array << booking.van.id
+      end
+      @vans_dates = @vans_all.where.not(id: @array)
+    else
+      @vans_dates = Van.all
+    end
+
+    if params[:new_location].present?
+      @vans_locations = @vans_dates.where(location: params[:new_location])
+    else
+      @vans_locations = @vans_dates
+    end
+
+    if params[:new_seats].present?
+      @vans = @vans_locations.where("seats >= ?", params[:new_seats])
+    else
+      @vans = @vans_locations
+    end
     authorize @vans
   end
 
