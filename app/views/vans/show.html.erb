@@ -30,13 +30,13 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="d-flex flex-column justify-content-center col-12 col-lg-6 my-5">
-        <h4 class="van-highlight">A word from the owner</h4>
+    <div class="row mt-5">
+      <div class="d-flex flex-column justify-content-center col-12 col-lg-7 my-5">
+        <h4 class="van-highlight">A word from <%= @van.user.first_name %></h4>
         <p class="van-description">"<%= @van.description %>"</p>
       </div>
       <% unless policy(@van).edit? %>
-        <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
+        <div class="col-12 col-lg-5 d-flex justify-content-center align-items-center">
             <%= render 'partials/booking_form' %>
         </div>
       <% end %>
