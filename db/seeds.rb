@@ -9,142 +9,143 @@ require "open-uri"
 
 Van.destroy_all
 User.destroy_all
+Booking.destroy_all
 puts "start seed"
 
-User.create(
+enzo = User.create(
   first_name: "Enzo",
   last_name: "Declercq",
   email: "enzo.declercq@gmail.com",
   password: "1234567"
 )
 
-User.create(
+lena = User.create(
   first_name: "Lena",
   last_name: "Claeys",
   email: "Lena.Claeys@gmail.com",
   password: "1234567"
 )
 
-User.create(
+linde = User.create(
   first_name: "Linde",
   last_name: "Bogaerts",
   email: "Linde.Bogaerts@gmail.com",
   password: "1234567"
 )
 
-User.create(
+finn = User.create(
   first_name: "Finn",
   last_name: "Borremans",
   email: "Finn.Borremans@gmail.com",
   password: "1234567"
 )
 
-User.create(
+tristan = User.create(
   first_name: "Tristan",
   last_name: "Goethals",
   email: "Tristan.Goethals@gmail.com",
   password: "1234567"
 )
 
-User.create(
+yanis = User.create(
   first_name: "Yanis",
   last_name: "Leroy",
   email: "Yanis.Leroy@gmail.com",
   password: "1234567"
 )
 
-User.create(
+arne = User.create(
   first_name: "Arne",
   last_name: "Coppens",
   email: "Arne.Coppens@gmail.com",
   password: "1234567"
 )
 
-User.create(
+axelle = User.create(
   first_name: "Axelle",
   last_name: "Moreau",
   email: "Axelle.Moreau@gmail.com",
   password: "1234567"
 )
 
-User.create(
+sara = User.create(
   first_name: "Sara",
   last_name: "Simons",
   email: "Sara.Simons@gmail.com",
   password: "1234567"
 )
 
-User.create(
+antoine = User.create(
   first_name: "Antoine",
   last_name: "Verstraeten",
   email: "Antoine.Verstraeten@gmail.com",
   password: "1234567"
 )
 
-User.create(
+anna = User.create(
   first_name: "Anna",
   last_name: "Renard",
   email: "Anna.Renard@gmail.com",
   password: "1234567"
 )
 
-User.create(
+hajar = User.create(
   first_name: "Hajar",
   last_name: "Descamps",
   email: "Hajar.Descamps@gmail.com",
   password: "1234567"
 )
 
-User.create(
+celia = User.create(
   first_name: "Célia",
   last_name: "Poncelet",
   email: "Célia.Poncelet@gmail.com",
   password: "1234567"
 )
 
-User.create(
+vince = User.create(
   first_name: "Vince",
   last_name: "Verheyen",
   email: "Vince.Verheyen@gmail.com",
   password: "1234567"
 )
 
-User.create(
+martin = User.create(
   first_name: "Martin",
   last_name: "Goffin",
   email: "Martin.Goffin@gmail.com",
   password: "1234567"
 )
 
-User.create(
+elise = User.create(
   first_name: "Elise",
   last_name: "Borremans",
   email: "Elise.Borremans@gmail.com",
   password: "1234567"
 )
 
-User.create(
+tibo = User.create(
   first_name: "Tibo",
   last_name: "Verhaegen",
   email: "Tibo.Verhaegen@gmail.com",
   password: "1234567"
 )
 
-User.create(
+daan = User.create(
   first_name: "Daan",
   last_name: "Vermeersch",
   email: "Daan.Vermeersch@gmail.com",
   password: "1234567"
 )
 
-User.create(
+maya = User.create(
   first_name: "Maya",
   last_name: "Collignon",
   email: "Maya.Collignon@gmail.com",
   password: "1234567"
 )
 
-User.create(
+nolan = User.create(
   first_name: "Nolan",
   last_name: "Vandamme",
   email: "Nolan.Vandamme@gmail.com",
@@ -158,7 +159,7 @@ van1 = Van.new(
   seats: 4,
   location: "Paris",
   price_per_day: 68,
-  user_id: 1
+  user_id: enzo.id
   # photo: "app/assets/images/Marco_Polo.avif"
 )
 van1.photo.attach(io: file1, filename: "Marco_Polo.avif", content_type: "image/png")
@@ -171,7 +172,7 @@ van2 = Van.new(
   seats: 6,
   location: "Grenoble",
   price_per_day: 185,
-  user_id: 2
+  user_id: lena.id
   # photo: "app/assets/images/VW_COMBI_VINTAGE_T2_MOJITO.jpg"
 )
 van2.photo.attach(io: file2, filename: "VW_COMBI_VINTAGE_T2_MOJITO.jpg", content_type: "image/png")
@@ -184,7 +185,7 @@ van3 = Van.new(
   seats: 5,
   location: "Bordeaux",
   price_per_day: 130,
-  user_id: 3
+  user_id: linde.id
   # photo: "app/assets/images/Wrangler.avif"
 )
 van3.photo.attach(io: file3, filename: "Wrangler.avif", content_type: "image/png")
@@ -197,7 +198,7 @@ van4 = Van.new(
   seats: 6,
   location: "Lille",
   price_per_day: 140,
-  user_id: 4
+  user_id: finn.id
   # photo: "app/assets/images/Fiat_Seal_Rimor_5.jpg"
 )
 van4.photo.attach(io: file4, filename: "Fiat_Seal_Rimor_5.jpg", content_type: "image/png")
@@ -210,7 +211,7 @@ van5 = Van.new(
   seats: 4,
   location: "Paris",
   price_per_day: 138,
-  user_id: 5
+  user_id: tristan.id
   # photo: "app/assets/images/VW_T6_California_Ocean.jpg"
 )
 van5.photo.attach(io: file5, filename: "VW_T6_California_Ocean.jpg", content_type: "image/png")
@@ -223,7 +224,7 @@ van6 = Van.new(
   seats: 2,
   location: "Paris",
   price_per_day: 138,
-  user_id: 6
+  user_id: yanis.id
   # photo: "app/assets/images/Wide_Path_Camper.jpg"
 )
 van6.photo.attach(io: file6, filename: "Wide_Path_Camper.jpg", content_type: "image/png")
@@ -236,7 +237,7 @@ van7 = Van.new(
   seats: 3,
   location: "Nantes",
   price_per_day: 160,
-  user_id: 7
+  user_id: arne.id
   # photo: "app/assets/images/Ford_Transit_2018.jpg"
 )
 van7.photo.attach(io: file7, filename: "Ford_Transit_2018.jpg", content_type: "image/png")
@@ -249,7 +250,7 @@ van8 = Van.new(
   seats: 5,
   location: "Marseille",
   price_per_day: 139,
-  user_id: 8
+  user_id: axelle.id
   # photo: "app/assets/images/Ahorn_Camp_660.jpg"
 )
 van8.photo.attach(io: file8, filename: "Ahorn_Camp_660.jpg", content_type: "image/png")
@@ -262,7 +263,7 @@ van9 = Van.new(
   seats: 3,
   location: "Lyon",
   price_per_day: 134.5,
-  user_id: 9
+  user_id: sara.id
   # photo: "app/assets/images/Vito_spacieux.jpeg"
 )
 van9.photo.attach(io: file9, filename: "Vito_spacieux.jpeg", content_type: "image/png")
@@ -275,7 +276,7 @@ van10 = Van.new(
   seats: 3,
   location: "Nice",
   price_per_day: 221,
-  user_id: 10
+  user_id: antoine.id
   # photo: "app/assets/images/chalet_sur_roues.jpg"
 )
 van10.photo.attach(io: file10, filename: "chalet_sur_roues.jpg", content_type: "image/png")
@@ -288,7 +289,7 @@ van11 = Van.new(
   seats: 5,
   location: "Bougival",
   price_per_day: 140,
-  user_id: 11
+  user_id: anna.id
   # photo: "app/assets/images/Volkswagen_California.jpg"
 )
 van11.photo.attach(io: file11, filename: "Volkswagen_California.jpg", content_type: "image/png")
@@ -301,7 +302,7 @@ van12 = Van.new(
   seats: 4,
   location: "Brest",
   price_per_day: 64,
-  user_id: 12
+  user_id: hajar.id
   # photo: "app/assets/images/Rebel.avif"
 )
 van12.photo.attach(io: file12, filename: "Rebel.avif", content_type: "image/png")
@@ -314,7 +315,7 @@ van13 = Van.new(
   seats: 5,
   location: "Orléans",
   price_per_day: 206,
-  user_id: 13
+  user_id: celia.id
   # photo: "app/assets/images/Atlas5.avif"
 )
 van13.photo.attach(io: file13, filename: "Atlas5.avif", content_type: "image/png")
@@ -327,7 +328,7 @@ van14 = Van.new(
   seats: 4,
   location: "Dunkerque",
   price_per_day: 197,
-  user_id: 14
+  user_id: vince.id
   # photo: "app/assets/images/Nomad.avif"
 )
 van14.photo.attach(io: file14, filename: "Nomad.avif", content_type: "image/png")
@@ -340,7 +341,7 @@ van15 = Van.new(
   seats: 2,
   location: "Paris",
   price_per_day: 105,
-  user_id: 15
+  user_id: martin.id
   # photo: "app/assets/images/Ford_Transit.jpg"
 )
 van15.photo.attach(io: file15, filename: "Ford_Transit.jpg", content_type: "image/png")
@@ -353,7 +354,7 @@ van16 = Van.new(
   seats: 4,
   location: "Lyon",
   price_per_day: 221,
-  user_id: 16
+  user_id: elise.id
   # photo: "app/assets/images/RV65.jpg"
 )
 van16.photo.attach(io: file16, filename: "RV65.jpg", content_type: "image/png")
@@ -366,7 +367,7 @@ van17 = Van.new(
   seats: 2,
   location: "Limoges",
   price_per_day: 102,
-  user_id: 17
+  user_id: tibo.id
   # photo: "app/assets/images/Comfort_in_the_Wild.jpg"
 )
 van17.photo.attach(io: file17, filename: "Comfort_in_the_Wild.jpg", content_type: "image/png")
@@ -379,7 +380,7 @@ van18 = Van.new(
   seats: 3,
   location: "Grenoble",
   price_per_day: 105,
-  user_id: 18
+  user_id: daan.id
   # photo: "app/assets/images/Titan_the_cosy_camper.jpg"
 )
 van18.photo.attach(io: file18, filename: "Titan_the_cosy_camper.jpg", content_type: "image/png")
@@ -392,7 +393,7 @@ van19 = Van.new(
   seats: 4,
   location: "Paris",
   price_per_day: 406,
-  user_id: 19
+  user_id: maya.id
   # photo: "app/assets/images/Luxury_Glamper_Van.jpg"
 )
 van19.photo.attach(io: file19, filename: "Luxury_Glamper_Van.jpg", content_type: "image/png")
@@ -405,7 +406,7 @@ van20 = Van.new(
   seats: 4,
   location: "Lyon",
   price_per_day: 153,
-  user_id: 20
+  user_id: nolan.id
   # photo: "app/assets/images/Clockwork_Orange.png"
 )
 van20.photo.attach(io: file20, filename: "Clockwork_Orange.png", content_type: "image/png")
