@@ -3,7 +3,6 @@ class VansController < ApplicationController
   before_action :set_van, only: %i[show edit update destroy]
 
   def index
-
     if params[:new_start_date].present? && params[:new_end_date].present?
       @vans_all = Van.all
       @bookings_start = Booking.bookings_start_date( params[:new_start_date]).bookings_end_date(params[:new_start_date])
@@ -20,9 +19,14 @@ class VansController < ApplicationController
 
     if params[:new_location].present?
       sql_query = <<~SQL
-      vans.location ILIKE :search_location
+        vans.location ILIKE :search_location
       SQL
       @vans_locations = @vans_dates.where(sql_query, search_location: "%#{params[:new_location]}%")
+    elsif params[:city].present?
+      sql_query = <<~SQL
+        vans.location ILIKE :search_location
+      SQL
+      @vans_locations = @vans_dates.where(sql_query, search_location: "%#{params[:city]}%")
     else
       @vans_locations = @vans_dates
     end
