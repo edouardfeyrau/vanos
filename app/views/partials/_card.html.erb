@@ -2,12 +2,12 @@
   <div class="main-card-photo" style="background-image: url(<%= cl_image_path(van.photo.key) %>)"></div>
   <div class="main-card-info d-flex justify-content-between p-3">
     <div>
-      <h3 class="main-card-title"><%= van.title %></h3>
+      <h3 class="main-card-title "><%= van.title %></h3>
 
       <div class="d-flex">
-        <h4 class="main-card-price"><%= van.price_per_day %></h4>
+        <h4 class="main-card-price align-self-center"><%= van.price_per_day %></h4>
         <div class="align-self-center">
-          <i class="fa-solid fa-euro-sign align-self-center fa-lg"></i>
+          <i class="fa-solid fa-euro-sign align-self-center fa-md"></i>
           <small class="fs-5 align-self-center opacity-50">/night</small>
         </div>
       </div>
