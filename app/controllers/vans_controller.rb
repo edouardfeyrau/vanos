@@ -19,7 +19,10 @@ class VansController < ApplicationController
     end
 
     if params[:new_location].present?
-      @vans_locations = @vans_dates.where(location: params[:new_location])
+      sql_query = <<~SQL
+      vans.location ILIKE :search_location
+      SQL
+      @vans_locations = @vans_dates.where(sql_query, search_location: "%#{params[:new_location]}%")
     else
       @vans_locations = @vans_dates
     end

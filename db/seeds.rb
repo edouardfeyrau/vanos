@@ -229,7 +229,7 @@ van6 = Van.new(
 van6.photo.attach(io: file6, filename: "Wide_Path_Camper.jpg", content_type: "image/png")
 van6.save
 
-file7 = URI.open("https://res.cloudinary.com/dkn6slr3b/image/upload/v1653467843/bfs1rue2la5rm0x8xldu.avif")
+file7 = URI.open("https://res.cloudinary.com/dkn6slr3b/image/upload/v1653468591/g437vmku88e6mqxkwscn.jpg")
 van7 = Van.new(
   title: "Ford Transit 2018",
   description: "Une vraie maison roulante !",
@@ -268,7 +268,7 @@ van9 = Van.new(
 van9.photo.attach(io: file9, filename: "Vito_spacieux.jpeg", content_type: "image/png")
 van9.save
 
-file10 = URI.open("https://res.cloudinary.com/dkn6slr3b/image/upload/v1653467843/bfs1rue2la5rm0x8xldu.avif")
+file10 = URI.open("https://res.cloudinary.com/dkn6slr3b/image/upload/v1653468597/ehkht3suicd6bhafqpea.jpg")
 van10 = Van.new(
   title: "Le chalet sur roues",
   description: "ce van un espace chaleureux, comme dans un petit chalet de montagne.",

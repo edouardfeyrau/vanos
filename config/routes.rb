@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :vans, only: %i[index new create show destroy edit update] do
     resources :bookings, only: %i[new create]
   end
-  resources :bookings, only: [:show]
+  resources :bookings, only: [:show, :destroy]
   get "dashboard", to: "pages#dashboard"
   get "accept", to: "pages#accept_reservation"
   get "cancel", to: "pages#cancel_reservation"
