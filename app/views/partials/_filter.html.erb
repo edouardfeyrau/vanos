@@ -1,0 +1,25 @@
+<div class="my-3">
+  <%= form_tag vans_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :new_location,
+      params[:new_location],
+      class: "form-control me-2",
+      placeholder: "Departure city"
+    %>
+    <%= text_field_tag :new_seats,
+      params[:new_seats],
+      class: "form-control mx-2",
+      placeholder: "How many will you be ?"
+    %>
+    <%= date_field_tag :new_start_date,
+      params[:new_start_date],
+      class: "form-control mx-2",
+      placeholder: "When do you want to travel ?"
+    %>
+      <%= date_field_tag :new_end_date,
+      params[:new_end_date],
+      class: "form-control mx-2",
+      placeholder: "When will you be done ?"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary text-light ms-2" %>
+  <% end %>
+</div>
