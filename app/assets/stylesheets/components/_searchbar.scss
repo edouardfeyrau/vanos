@@ -1,5 +1,8 @@
 
 .searchbar {
+  position: absolute;
+  bottom: 18px;
+  right: calc(50vw - 17.5vw);
   width: 35vw;
   height: 40px;
   background-color: $light-gray;
