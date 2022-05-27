@@ -1,52 +1,55 @@
-<h1 style="text-align:center"><%= @user.first_name %>'s Dashboard</h1>
-<br>
-<div class="container">
-  <h2>List of your van(s) available for rentals</h2>
-  <br>
-  <% @vans.each do |van| %>
-    <strong><%= van.title %></strong>
-    <br>
-    <br>
-    <img src=<%= cl_image_path(van.photo.key) %> width=300px>
-    <br>
-    <br>
-    <% if Booking.all.where(van: van).length == 0 %>
-      <p>You currently have no booking request yet for this van.</p>
-    <% else %>
-      <% Booking.all.where(van: van).each do |booking| %>
-        <%= booking.user.first_name %> has made a request for the period
-        <%= booking.start_date.strftime('%e %B %Y') %> to
-        <%= booking.end_date.strftime('%e %B %Y') %>
-        <br>
-        Request status is currently <%= booking.status.downcase %>
-        <br>
-        <br>
-        <%= link_to "Accept", accept_path(booking_id: booking.id) %>
-        <%= link_to "Cancel", cancel_path(booking_id: booking.id) %>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8">
+    <h1><%= @user.first_name %>'s Dashboard</h1>
+    <ul class="nav nav-tabs" id="Tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#vans" type="button" role="tab" aria-controls="vans" aria-selected="true">My vans</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#bookings" type="button" role="tab" aria-controls="bookings" aria-selected="false">My bookings</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">My profile</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="TabContent">
+      <div class="tab-pane fade show active" id="vans" role="tabpanel" aria-labelledby="vans-tab">
+        <% @vans.each do |van| %>
+
+          <% unless Booking.all.where(van: van).length.nonzero? %>
+            <p>You currently have no booking request yet for this van.</p>
+          <% else %>
+            <% Booking.all.where(van: van).each do |booking| %>
+              <%= booking.user.first_name %> has made a request for the period
+              <%= booking.start_date.strftime('%e %B %Y') %> to
+              <%= booking.end_date.strftime('%e %B %Y') %>
+              Request status is currently <%= booking.status.downcase %>
+              <%= link_to "Accept", accept_path(booking_id: booking.id) %>
+              <%= link_to "Cancel", cancel_path(booking_id: booking.id) %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="bookings" role="tabpanel" aria-labelledby="bookings-tab">
+      <% unless @bookings.length.nonzero? %>
+      You do not have any booking planned yet.
+      <% else %>
+          <% @bookings.each do |booking| %>
+          <strong>Van booked:</strong> <%= booking.van.title %>
+          <strong>Date of location</strong>
+          from <strong><%= booking.start_date.strftime('%e %B %Y at %l:%M %p') %></strong>
+          to <strong><%= booking.end_date.strftime('%e %B %Y at %l:%M %p') %></strong>
+          Status of booking is <%= booking.status.downcase %>.
+          <% if booking.status == "Pending" %>
+            <%= booking.van.user.first_name %> will shortly come back to you
+          <% end %>
+          <% end %>
       <% end %>
-    <% end %>
-  <% end %>
-  <br>
-  <br>
-  <br>
-  <h2>List of your bookings</h2>
-  <br>
-  <% if @bookings.length == 0 %>
-  You do not have any booking planned yet
-  <% else %>
-    <% @bookings.each do |booking| %>
-      <strong>Van booked:</strong> <%= booking.van.title %>
-      <br>
-      <strong>Date of location</strong>
-      from <strong><%= booking.start_date.strftime('%e %B %Y at %l:%M %p') %></strong>
-      to <strong><%= booking.end_date.strftime('%e %B %Y at %l:%M %p') %></strong>
-      <br>
-      Status of booking is <%= booking.status.downcase %>.
-      <% if booking.status == "Pending" %>
-        <%= booking.van.user.first_name %> will shortly come back to you
-      <% end %>
-      <br>
-      <br>
-    <% end %>
-  <% end %>
+      </div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      </div>
+    </div>
+    </div>
+  </div>
 </div>
