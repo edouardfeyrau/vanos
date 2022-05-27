@@ -10,9 +10,35 @@
   </div>
   <div>
     <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-primary text-light" %>
+        <div class="dropdown">
+          <% user_initials = current_user.first_name.chars.first+current_user.last_name.chars.first %>
+          <button class="avatar btn btn-primary text-light" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= user_initials %></button>
+          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+            <%= link_to dashboard_path, class: "dropdown-item" do %>
+            <div class="d-flex justify-content-between">
+              <p>My dashboard</p>
+              <i class="fa-solid fa-user justify-self-end align-self-center opacity-75"></i>
+            </div>
+            <% end %>
+            <%= link_to new_van_path, class: "dropdown-item" do %>
+            <div class="d-flex justify-content-between">
+              <p>Add my van</p>
+              <i class="fa-solid fa-van-shuttle justify-self-end align-self-center opacity-75"></i>
+            </div>
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+              <div class="d-flex justify-content-between">
+                <p>Log out</p>
+                <i class="fa-solid fa-arrow-right-from-bracket justify-self-end align-self-center opacity-75"></i>
+              </div>
+            <% end %>
+          </div>
+        </div>
     <% else %>
-        <%= link_to "Login", new_user_session_path, class: "btn btn-primary text-light"%>
+      <div class="d-flex">
+        <%= link_to "Join the tribe", new_user_registration_path, class: "mx-3 align-self-center fs-5 text-primary"%>
+        <%= link_to "Log in", new_user_session_path, class: "mx-1 btn btn-primary text-light"%>
+      </div>
     <% end %>
   </div>
 </nav>
