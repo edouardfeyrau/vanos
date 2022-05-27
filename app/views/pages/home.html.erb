@@ -5,12 +5,13 @@
   <%= link_to "Find my van", vans_path, class: "btn btn-primary btn-lg text-light mt-3" %>
   </div>
 </div>
-<div class="container my-5 p-4">
+<div class="container my-4 p-4">
   <div class="row justify-content-center mb-5">
     <div class="col-12 p-0">
       <div class="mb-5">
-        <h1 class="text-primary fs-1 fw-bold text-center">We rent vans</h1>
+        <h1 class="text-primary fs-1 fw-bold text-center mb-3">We rent vans</h1>
         <p class="fs-4 text-center"><strong>Vanos</strong> gives you access to vans all around the world</p>
+        <%= render "/partials/filter"%>
       </div>
       <div class="grid">
         <% @vans.each do |van| %>
