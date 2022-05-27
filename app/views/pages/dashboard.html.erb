@@ -1,53 +1,117 @@
 <div class="container my-5">
   <div class="row justify-content-center">
-    <div class="col-12 col-lg-8">
-    <h1><%= @user.first_name %>'s Dashboard</h1>
+    <div class="col-12">
+    <h1 class="mb-3">My dashboard</h1>
     <ul class="nav nav-tabs" id="Tab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#vans" type="button" role="tab" aria-controls="vans" aria-selected="true">My vans</button>
+        <button class="nav-link active" id="vans-tab" data-bs-toggle="tab" data-bs-target="#vans" type="button" role="tab" aria-controls="vans" aria-selected="true">My vans</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#bookings" type="button" role="tab" aria-controls="bookings" aria-selected="false">My bookings</button>
+        <button class="nav-link" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests" type="button" role="tab" aria-controls="requests" aria-selected="true">My requests</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">My profile</button>
+        <button class="nav-link" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings" type="button" role="tab" aria-controls="bookings" aria-selected="false">My bookings</button>
       </li>
     </ul>
     <div class="tab-content" id="TabContent">
-      <div class="tab-pane fade show active" id="vans" role="tabpanel" aria-labelledby="vans-tab">
+      <div class="my-3 tab-pane fade show active" id="vans" role="tabpanel" aria-labelledby="vans-tab">
+        <div class="grid">
+          <% @vans.each do |van| %>
+              <%= link_to van_path(van), class: 'text-decoration-none' do %>
+                <%= render 'partials/card', van: van %>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="my-3 tab-pane fade show" id="requests" role="tabpanel" aria-labelledby="requests-tab">
         <% @vans.each do |van| %>
-
           <% unless Booking.all.where(van: van).length.nonzero? %>
-            <p>You currently have no booking request yet for this van.</p>
+            <p>You currently have no booking request yet.</p>
           <% else %>
             <% Booking.all.where(van: van).each do |booking| %>
-              <%= booking.user.first_name %> has made a request for the period
-              <%= booking.start_date.strftime('%e %B %Y') %> to
-              <%= booking.end_date.strftime('%e %B %Y') %>
-              Request status is currently <%= booking.status.downcase %>
-              <%= link_to "Accept", accept_path(booking_id: booking.id) %>
-              <%= link_to "Cancel", cancel_path(booking_id: booking.id) %>
+              <ul class="w-25 list-group">
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <i class="fa-solid fa-user me-3 align-self-center opacity-50"></i>
+                    <p><%= booking.user.first_name %></p>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <i class="fa-solid fa-van-shuttle me-3 align-self-center opacity-50"></i>
+                    <p><%= booking.start_date.strftime("%d %B %Y") %></p>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <i class="fa-solid fa-van-shuttle me-3 align-self-center opacity-50" style="transform: scaleX(-1)"></i>
+                    <p><%= booking.end_date.strftime("%d %B %Y") %></p>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <i class="fa-solid fa-people-group me-3 align-self-center opacity-50"></i>
+                    <p><%= booking.van.seats %> riders</p>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <i class="fa-solid fa-equals me-3 align-self-center opacity-50"></i>
+                    <p><%= booking.transaction_amount %>€</p>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <i class="fa-solid fa-hourglass me-3 align-self-center opacity-50"></i>
+                    <p><%= booking.status %></p>
+                  </div>
+                </li>
+                <% unless booking.status == "Accepted" %>
+                  <li class="list-group-item">
+                      <div class="d-flex justify-content-between">
+                        <%= link_to "Decline", cancel_path(booking_id: booking.id), class:"btn btn-outline-danger" %>
+                        <%= link_to "Accept", accept_path(booking_id: booking.id), class:"btn btn-outline-success" %>
+                      </div>
+                  </li>
+                <% end %>
+              </ul>
             <% end %>
           <% end %>
         <% end %>
       </div>
-      <div class="tab-pane fade" id="bookings" role="tabpanel" aria-labelledby="bookings-tab">
-      <% unless @bookings.length.nonzero? %>
-      You do not have any booking planned yet.
-      <% else %>
-          <% @bookings.each do |booking| %>
-          <strong>Van booked:</strong> <%= booking.van.title %>
-          <strong>Date of location</strong>
-          from <strong><%= booking.start_date.strftime('%e %B %Y at %l:%M %p') %></strong>
-          to <strong><%= booking.end_date.strftime('%e %B %Y at %l:%M %p') %></strong>
-          Status of booking is <%= booking.status.downcase %>.
-          <% if booking.status == "Pending" %>
-            <%= booking.van.user.first_name %> will shortly come back to you
-          <% end %>
-          <% end %>
-      <% end %>
-      </div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="my-3 tab-pane fade" id="bookings" role="tabpanel" aria-labelledby="bookings-tab">
+        <% unless @bookings.length.nonzero? %>
+          You do not have any booking planned yet.
+        <% else %>
+            <ul class="w-25 list-group">
+              <% @bookings.each do |booking| %>
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <i class="fa-solid fa-circle-dot me-3 align-self-center opacity-50"></i>
+                    <p><%= booking.van.title %></p>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <i class="fa-solid fa-van-shuttle me-3 align-self-center opacity-50"></i>
+                    <p><%= booking.start_date.strftime("%d %B %Y") %></p>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <i class="fa-solid fa-van-shuttle me-3 align-self-center opacity-50" style="transform: scaleX(-1)"></i>
+                    <p><%= booking.end_date.strftime("%d %B %Y") %></p>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="d-flex">
+                    <i class="fa-solid fa-hourglass me-3 align-self-center opacity-50"></i>
+                    <p><%= booking.status %></p>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+        <% end %>
       </div>
     </div>
     </div>
